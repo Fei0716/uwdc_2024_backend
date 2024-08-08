@@ -12,6 +12,9 @@
 </head>
 <body>
     <button class="btn btn-primary">TEst</button>
+    @php
+     phpinfo();
+    @endphp
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('jquery/jquery.min.js')}}"></script>
 </body>

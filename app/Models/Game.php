@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'player_count', 'round_count', 'link' ];
+
+    protected $fillable = ['name', 'player_count', 'round_count', 'link' , 'draw_item_index' ];
     public $appends = ['playersJoined'];
 //    use unique link
     public function getRouteKeyName()
@@ -22,7 +23,9 @@ class Game extends Model
     public function gameRounds(){
         return $this->hasMany(GameRound::class, 'game_id', 'id');
     }
-
+    public function gameSnapshots(){
+        return $this->hasMany(GameSnapshot::class, 'game_id' , 'id');
+    }
     public function getPlayersJoinedAttribute(){
         return $this->players->count();
     }

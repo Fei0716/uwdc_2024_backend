@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('game_snapshots', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
+            $table->longText('data_url');
+            $table->unsignedBigInteger('game_id');
             $table->timestamps();
+
+            $table->foreign('game_id')->references('id')->on('games');
         });
     }
 

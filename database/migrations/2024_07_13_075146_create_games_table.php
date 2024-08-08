@@ -22,6 +22,8 @@ return new class extends Migration
             $table->longText('drawing_data')->nullable();
             $table->string('final_gif')->nullable();
             $table->boolean('has_started')->default(false);
+            $table->boolean('has_ended')->default(false);
+            $table->integer('draw_item_index')->nullable();
 
             $table->timestamps();
         });
